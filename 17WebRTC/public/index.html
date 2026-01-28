@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediConnect Pro | Secure Clinical Video</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-shell">
+    <nav class="top-nav">
+      <div class="brand">
+        <div class="brand-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+        </div>
+        <span>MediConnect <small>Clinical</small></span>
+      </div>
+      <div class="session-info">
+        <div class="status-badge">
+          <span class="pulse-dot"></span>
+          Direct Encryption Active
+        </div>
+      </div>
+    </nav>
+
+    <main class="viewport">
+      <div class="video-workspace">
+        <video id="remoteVideo" class="remote-feed" autoplay playsinline></video>
+        
+        <div id="videoPlaceholder" class="video-placeholder">
+          <div class="placeholder-content">
+            <div class="icon-circle">🩺</div>
+            <h3>Waiting for Connection</h3>
+            <p>Start your camera to begin the clinical session</p>
+          </div>
+        </div>
+
+        <div class="self-view">
+          <video id="localVideo" autoplay muted playsinline></video>
+          <div class="user-label">Local Feed</div>
+        </div>
+
+        <div id="incomingCall" class="modal-overlay hidden">
+          <div class="call-card">
+            <div class="avatar-ring">DR</div>
+            <h3>Specialist Entry</h3>
+            <p>A medical professional is requesting to join this secure session.</p>
+            <div class="card-actions">
+              <button id="acceptBtn" class="btn btn-primary">Accept & Join</button>
+              <button id="rejectBtn" class="btn btn-ghost">Decline</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="controls-dock">
+        <div class="dock-container">
+          <button id="startBtn" class="btn btn-primary main-action">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+            Start Consultation
+          </button>
+
+          <button id="hangupBtn" class="btn btn-danger hidden">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.68 13.31a16 16 0 0 0 3.41 2.6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 1.72 2v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.42 19.42 0 0 1-3.33-2.67m-2.67-3.34a19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91"/></svg>
+            End Session
+          </button>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
