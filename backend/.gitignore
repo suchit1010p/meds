@@ -39,3 +39,4 @@ build/
 # Coverage
 # =========================
 coverage/
+package-lock.json
