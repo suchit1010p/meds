@@ -1,4 +1,6 @@
 // 🔥 dotenv must be loaded at import time (ESM safe)
+import dotenv from "dotenv";
+dotenv.config();
 import "dotenv/config";
 
 import http from "http";
